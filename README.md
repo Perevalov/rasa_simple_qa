@@ -6,4 +6,4 @@ In project folder:
 * `screen -S rasa`
 * `rasa run actions`
 * Ctrl+A, Ctrl+D
-* rasa shell
+* `rasa shell`
