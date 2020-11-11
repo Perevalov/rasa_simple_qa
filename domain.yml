@@ -1,0 +1,65 @@
+version: "2.0"
+
+forms:
+  birthPlace_form:
+    person:
+      - type: from_entity
+        entity: person
+  timeZone_form:
+    location:
+      - type: from_entity
+        entity: location
+  genre_form:
+    artist:
+      - type: from_entity
+        entity: artist
+
+entities:
+  - person
+  - location
+  - artist
+
+slots:
+  location:
+    type: text
+    auto_fill: false
+    influence_conversation: false
+  timeZone:
+    type: text
+    auto_fill: false
+    influence_conversation: false
+  genre:
+    type: text
+    auto_fill: false
+    influence_conversation: false
+  artist:
+    type: text
+    auto_fill: false
+    influence_conversation: false
+  person:
+    type: text
+    auto_fill: false
+    influence_conversation: false
+
+actions:
+  - action_run_sparql
+  - action_reset_slot
+
+intents:
+  - birthPlace
+  - genre
+  - timeZone
+
+responses:
+  utter_genre:
+  - text: "The genre of {artist} is {genre}"
+  
+  utter_timeZone:
+  - text: "The timezone in {location} is {timeZone}"
+
+  utter_birthPlace:
+  - text: "{person}'s birth place is {location}"
+
+session_config:
+  session_expiration_time: 1
+  carry_over_slots_to_new_session: false

@@ -1,0 +1,54 @@
+version: "2.0"
+
+rules:
+
+# birth place
+- rule: activate birthPlace form
+  steps:
+    - intent: birthPlace   # intent that triggers form activation
+    - action: birthPlace_form      # run the form
+    - active_loop: birthPlace_form # this form is active
+
+- rule: submit form
+  condition:
+  - active_loop: birthPlace_form   # this form must be active
+  steps:
+    - action: birthPlace_form      # run the form
+    - active_loop: null            # the form is no longer active because it has been fille
+    - action: action_run_sparql
+    - action: utter_birthPlace   # action to take after the form is complete
+    - action: action_reset_slot
+
+# genre
+- rule: activate genre form
+  steps:
+    - intent: genre   # intent that triggers form activation
+    - action: genre_form      # run the form
+    - active_loop: genre_form # this form is active
+
+- rule: submit genre form
+  condition:
+  - active_loop: genre_form   # this form must be active
+  steps:
+    - action: genre_form      # run the form
+    - active_loop: null            # the form is no longer active because it has been fille
+    - action: action_run_sparql
+    - action: utter_genre   # action to take after the form is complete
+    - action: action_reset_slot
+
+# timeZone
+- rule: activate timeZone form
+  steps:
+    - intent: timeZone   # intent that triggers form activation
+    - action: timeZone_form      # run the form
+    - active_loop: timeZone_form # this form is active
+
+- rule: submit timeZone form
+  condition:
+  - active_loop: timeZone_form   # this form must be active
+  steps:
+    - action: timeZone_form      # run the form
+    - active_loop: null            # the form is no longer active because it has been fille
+    - action: action_run_sparql
+    - action: utter_timeZone # action to take after the form is complete
+    - action: action_reset_slot

@@ -1,0 +1,17 @@
+version: "2.0"
+
+nlu:
+- intent: birthPlace
+  examples: |
+    - where was [Angela Merkel](person) born?
+    - what is the birth place of [Barack obama](person)?
+- intent: genre
+  examples: |
+    - what is the genre of the album our [beloved revolutionary sweetheart](artist)?
+    - in what genre did [Chuck Berry](artist) play?
+- intent: timeZone
+  examples: |
+    - [waynesboro](location) belongs to what timezone
+    - [Berlin](location) belongs to what timezone
+    - Which time zone is used in [Germany](location)
+    - Which timezone is used in [Wuhan](location)?
